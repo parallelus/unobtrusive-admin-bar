@@ -40,7 +40,7 @@ class Unobtrusive_Admin_Bar {
 	private static $instance;
 
 	/**
-	 * Sets break points. 
+	 * Sets break points.
 	 * Accepts any number value.
 	 */
 	public static $responsive_break;
@@ -88,7 +88,7 @@ class Unobtrusive_Admin_Bar {
 		self::$add_top_margin = apply_filters('uab_add_top_margin', false); // adds top margin before scroll (true, false or 'top')
 
 		// Add the CSS to <head>
-		add_action('wp_head', array( self::$instance, 'add_css'));
+		add_action('wp_head', array( self::$instance, 'add_css'), 99);
 
 		// Add the JS to the footer
 		if (self::$add_top_margin) {
@@ -159,9 +159,9 @@ class Unobtrusive_Admin_Bar {
 			<style type='text/css'>
 
 				@media screen and ( min-width: <?php echo esc_attr(self::$responsive_break) ?>px ) {
-				
-					html[style] { margin-top: 0 !important; }
-					* html body[style] { margin-top: 0 !important; }
+
+					html { margin-top: 0 !important; }
+					* html body { margin-top: 0 !important; }
 					/*
 					@media screen and ( max-width: 782px ) {
 						html { margin-top: 46px !important; }
@@ -173,7 +173,7 @@ class Unobtrusive_Admin_Bar {
 						opacity: 0;
 						top: -32px;
 					}
-					  
+
 					div#wpadminbar:hover {
 						opacity: 1;
 						top: 0;
@@ -252,9 +252,9 @@ class Unobtrusive_Admin_Bar {
 	/**
 	 * Remove body classes for .admin-bar
 	 *
-	 * The .admin-bar body class is used by plugins and themes to adjust display styles and 
+	 * The .admin-bar body class is used by plugins and themes to adjust display styles and
 	 * to the extra body margin. With that removed by the plugin we can remove the body class
-	 * also so that themes and plugins do not modify their appearance and leave a gap at the 
+	 * also so that themes and plugins do not modify their appearance and leave a gap at the
 	 * top of the page.
 	 */
 	public function unset_body_class( $classes = array() ) {
