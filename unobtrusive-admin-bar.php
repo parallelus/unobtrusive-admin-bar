@@ -85,7 +85,7 @@ class Unobtrusive_Admin_Bar {
 
 		// Set some values
 		self::$responsive_break = apply_filters('uab_responsive_break_point', 783); // 783 matches default #wpadminbar beak points
-		self::$add_top_margin = apply_filters('uab_add_top_margin', 'top'); // adds top margin before scroll
+		self::$add_top_margin = apply_filters('uab_add_top_margin', false); // adds top margin before scroll (true, false or 'top')
 
 		// Add the CSS to <head>
 		add_action('wp_head', array( self::$instance, 'add_css'));
