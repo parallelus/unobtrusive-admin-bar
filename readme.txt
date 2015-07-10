@@ -48,7 +48,7 @@ Sample use:
 	add_filter('uab_add_top_margin', 'my_adminbar_margin');
 
 == Screenshots ==
-1. The admin bar is hidden and hidden by default.
+1. The admin bar is hidden by default.
 2. Hovering near the top of the page reveals a hint for a visual indication. Pausing on this will reveal the full admin bar.
 2. After hovering the admin bar is revealed.
 
